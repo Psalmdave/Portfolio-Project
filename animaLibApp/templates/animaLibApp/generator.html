@@ -1,0 +1,265 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Generator {% endblock %}
+
+{% block style %}
+<link href="{% static 'css/componentDesign.css' %}" rel="stylesheet" />
+<link href="{% static 'css/design.css' %}" rel="stylesheet" />
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" />
+<link href="{% static 'css/animation.css' %}" rel="stylesheet" />
+<link href="{% static 'css/generator.css' %}" rel="stylesheet" />
+{% endblock %} {% block content %}
+<div class="showpop" style="display:none;">
+  <div class="showpopup">
+        <div class="close_icon">&times</div>
+
+    <div class="popup_content">
+      <p id="mz">Please select an animation</p>
+      <center><button class="close_btn">Ok</button></center>
+    </div>
+  </div>
+</div>
+
+<div class="maincontentContainer container">
+    {% include 'common/sideNav.html' %}
+
+    <!-- menu content -->
+    <div class="menuContentContainer">
+        <!-- top row with documentation -->
+        <div class="documentationRow">
+            <!-- section content -->
+            <div class="section-content">
+                <!-- section content holder -->
+                <div class="section-contentHolder">
+                    <div class="sectionHeaderHolder">
+                        <!-- To insert generator page, insert animo and Animation generation header divs here, delete span -->
+                        <span>
+                            <div class="generatorheaders">
+                                <h4>Animo</h4>
+                                <h1>Animation Generator</h1>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="sectionContentBody">
+                        <!-- To insert generator page, insert Action header here, delete this text -->
+                        <div class="generatorheaders">
+                            <h3>Action</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- row 3 Amino content -->
+        <div class="animeRow">
+            <!-- section content -->
+            <div class="section-content">
+                <!-- section content holder -->
+                <div class="section-contentHolder">
+                    <!-- <div class="sectionHeaderHolder">
+                        <span class="anime-contentHeader">Animo</span>
+                    </div> -->
+                    <!-- Insert animation generator copy inside this section contentbody div -->
+                    <div class="generatorpage">
+                        <!-- Create Animation Menu -->
+                        <!-- <nav class="animationmenu"> -->
+                        <div class="animationgrp1" id="all_animations">
+                            <button type="button" class="but moveupnav" id="navup">Move up</button>
+                            <button type="button" class="but movedownnav" id="navdown">Move down</button>
+                            <button type="button" class="but moverightnav">Move right</button>
+                            <button type="button" class="but moveleftnav">Move left</button>
+                            <button type="button" class="but blinknav">Blink</button>
+                        </div>
+                        <div class="animationgrp2" id="all_animations">
+                            <button type="button" class="but bouncenav">Bounce</button>
+                            <button type="button" class="but fadenav">Fade</button>
+                            <button type="button" class="but flipnav">Flip</button>
+                            <button type="button" class="but swingnav">Swing</button>
+                            <button type="button" class="but tadanav">Tada</button>
+                        </div>
+                        <!-- </nav> -->
+                        <!-- Create wrapper for input, code editor and output area -->
+                        <div class="optionsoutputcontainer">
+                            <!-- wrapper for input form and output area side by side -->
+                            <div class="optionsoutputheaders">
+                                <div class="options">
+                                    <h2>Options</h2>
+                                </div>
+                                <div class="output">
+                                    <h2>Output</h2>
+                                </div>
+                            </div>
+                            <div class="input-output">
+                                <div class="inputvar">
+                                    <form name="codeinput" method="post">
+                                        {% csrf_token %}
+                                        <section>
+                                            <label for="name">Name</label>
+                                            <input id="namefield" type="text" name="name"
+                                                placeholder="Example: My Bounce" />
+
+                                            <label for="object">Object</label>
+                                            <select name="object" id="objectfield">
+                                                <option value="box">Box</option>
+                                                <option value="circle">Circle</option>
+
+                                                <!-- <option value="ball">Ball</option> -->
+                                            </select>
+                                            <!-- <input id="object" type="text" value="" name="object" /> -->
+                                        </section>
+
+                                        <section class="wholeduration">
+                                            <div class="duration">
+                                                <label for="duration">Duration</label>
+                                                <input id="durationfield" type="number" min="1" value="2" name="duration" />
+                                            </div>
+
+                                            <div class="secondswrapper">
+                                                <!-- <label for="seconds">seconds</label> -->
+                                                <select name="seconds" id="seconds">
+                                                    <option value="seconds">Seconds</option>
+                                                    <!-- <option  value="minutes" >Minutes</option> -->
+                                                </select>
+                                            </div>
+                                            <input type="hidden" name="action" id="action_name" />
+                                        </section>
+
+                                        <section class="wholeduration">
+                                            <div class="delay">
+                                                <label for="delay">Delay</label>
+                                                <input id="delayfield" type="number" min="1" value="1" name="delay" />
+                                            </div>
+
+                                            <div class="secondswrapper">
+                                                <!-- <label for="seconds">seconds</label> -->
+                                                <select name="seconds" id="seconds">
+                                                    <option value="seconds">Seconds</option>
+                                                    <!-- <option  value="minutes" >Minutes</option> -->
+                                                </select>
+                                            </div>
+                                        </section>
+
+                                        <section>
+                                            <div>
+                                                <label for="iterationcount">Iteration count</label>
+                                                <input id="iterationcountfield" min="1" type="number" value="2"
+                                                    name="iterationcount" />
+                                            </div>
+                                            <div class="infinitecontainer">
+                                                <input class="infinite" id="infinite" checked="checked" type="checkbox"
+                                                    value="" name="infinite" />
+                                                <label for="infinite">Infinite iteration</label>
+                                            </div>
+                                        </section>
+                                    </form>
+                                </div>
+                                <div class="outputresult">
+                                    <div class="result" id="animatedobject"></div>
+                                </div>
+                            </div>
+                            <!-- create button container -->
+                            <div class="buttoncontainer">
+                                <button class="generatebutton">Generate Code</button>
+                            </div>
+                                                            {% if saved_anim %}
+                                <div id="show" style="display:block">
+                                <div class="hiddencod" id="hiddencod">
+                                    {{saved_anim.code_generated | safe}}
+                                </div>
+                                <div class="save" id="save">
+                                    {% csrf_token %}
+                                    <p id="downloads">Download
+                                    <div><img src="{% static 'images/downloadicon.png' %}" width="25px"
+                                            class="downloadlogo" />
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- create code editor area -->
+                            <div class="html-code" id="html-code">
+                                <div class="hiddencode" id="hiddencode">
+                                </div>
+                                <div class="save" id="save">
+                                    {% csrf_token %}
+                                    <p id="download">Download
+                                    <div><img src="{% static 'images/downloadicon.png' %}" width="25px"
+                                            class="downloadlogo" />
+                                    </div>
+                                    </p>
+                                    <p id="savelogo">Save
+                                    <div><img src="{% static 'images/saveicon.png' %}" width="25px" class="savelogo" />
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="sectionContentBody">
+                        <div class="copywrite">
+                            <h3>Animation Generator Documentation</h3>
+                            <div class="keyframecopy">
+                                <h4>@Keyframe</h4>
+                                <p>Animo's generator utilizes @keyframes rules to specify the when the animation
+                                    will happen and the
+                                    magnitude of the change per time</p>
+                            </div>
+                            <div class="namecopy">
+                                <h4>Name</h4>
+                                <p>Animo's nomenclature uses a description of the expected motion. It stores your
+                                    code of interest
+                                    under
+                                    the
+                                    animation name so you can come back to it.</p>
+                            </div>
+                            <div class="objectcopy">
+                                <h4>Object</h4>
+                                <p>With Animo, your details are important therefore, Animo is built to give the
+                                    effects that you
+                                    desire
+                                    to
+                                    your elements and features no matter the shape or size</p>
+                            </div>
+                            <div class="durationcopy">
+                                <h4>Duration</h4>
+                                <p>Animo allows you to customize your choice animations without writing any code.
+                                    You decide how
+                                    long
+                                    the
+                                    duration of your animations should be
+                                </p>
+                            </div>
+                            <div class="delaycopy">
+                                <h4>Delay</h4>
+                                <p>With Animo you can customize the time between each iteration to suit your brand
+                                </p>
+                            </div>
+
+                            <div class="iterationcopy">
+                                <h4>Iteration Count</h4>
+                                <p>You can have your animation repeat as many times as you would like to deliver
+                                    your features
+                                    perfectly
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+    <!-- This container was left over once I cut it's content to paste in mabel's containers -->
+    <!-- <div class="wholepage">
+    </div> -->
+
+    <!-- Add hidden div with Css code required to display the animation -->
+  
+</div>
+{% block scripts %}
+<script src="{% static 'js/newgen.js' %}"></script> 
+{% endblock %}
+{% endblock %}

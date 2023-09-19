@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block title %} showAnimations{% endblock %}
+<!--  -->
+{% load static %} {% block style %}
+<link href="{% static 'css/componentDesign.css' %}" rel="stylesheet" />
+<link href="{% static 'css/design.css' %}" rel="stylesheet" />
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" />
+<link href="{% static 'css/animation.css' %}" rel="stylesheet" />
+{% endblock %} {% block content %} {% if messages %}
+<div class="showpop">
+  <div class="showpopup">
+    <div class="close_icon">&times</div>
+
+    <div class="popup_content">
+      {% for message in messages %}
+      <p>{{ message}}</p>
+
+      {% endfor %}
+      <center>
+        <a href="{% url 'register' %}" class="close_btn_register">Register</a>
+      </center>
+      <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="maincontentContainer container">
+  {% include 'common/sideNav.html' %}
+
+  <!-- menu content -->
+  <div class="menuContentContainer" id="big_div">
+    <!-- top row with animations -->
+    <div class="documentationRow">
+      <!-- section content -->
+      <div class="section-content">
+        <!-- section content holder -->
+        <div class="section-contentHolder">
+          <div
+            class="sectionHeaderHolder d-flex justify-content-between"
+            style="display: flex; align-items: center"
+          >
+            <span class="anime-mainHeader">Animation</span>
+
+            <span class="d-flex justify-content-end">
+              <button class="anime-button">
+                <a href="{% url 'download' %}" class="download-text"
+                  >Download Library</a
+                >
+                <span class="btn-icon"
+                  ><img
+                    src="https://res.cloudinary.com/ddrdcj3lb/image/upload/v1660245112/received_a4oula.png"
+                    alt=""
+                    width="20"
+                /></span>
+              </button>
+            </span>
+          </div>
+
+          <div class="sectionContentBody">
+            <p>
+              The following animations are supplied in the library. Click on the
+              name of the animation to learn more about their main usage
+              scenarios, how to define them and to see an example of the
+              animation
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="anime-animationDetails"></div>
+  </div>
+</div>
+
+<script></script>
+{% endblock %}

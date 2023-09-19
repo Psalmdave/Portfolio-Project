@@ -1,0 +1,69 @@
+{% extends 'baselogin.html' %} {% load static %}
+<!-- --------------------------------------------------------->
+{% load crispy_forms_tags %}
+
+{% load active_link_tags %}
+<!-- --------------------------------------------------------->
+{% block title %} Forgot password {% endblock %}
+<!-- ---------------------------------------------------------------------------- -->
+{% block style %}
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+<link href="{% static 'css/forgotpword.css' %}" rel="stylesheet" />
+
+{% endblock %} {% block content %}
+{% if messages %} 
+          <div class='showpop'>
+          <div class="showpopup">
+            <div class="close_icon">&times</div>
+                  <div class="popup_content">
+          {% for message in messages %}
+          {% if message.tags == "error" %}
+            <center><div class="cancel">&times</div></center>
+          {% else %}
+      <center><img src="{% static 'images/tick-circle.svg' %}" /></center>
+
+          {% endif %}
+            <p>{{ message}}</p>
+
+          {% endfor %} 
+                  <center><button class="close_btn">Ok</button></center>
+                  </div>
+                </div>
+          </div>
+          {% endif %}
+    <section class="login-card">
+        <div class="logo">
+            <img src="https://res.cloudinary.com/ddrdcj3lb/image/upload/v1659815158/logo_1_vsfmjo.png" width="140" height="39"/>
+        </div>
+        <h4>Forgot Password?</h4>
+        <div class="paragraph">
+        <p>No worries, resetting your password is easy, we’ll send you reset instruction.</p>
+    </div>
+        <div class="main-form">
+            
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="input-container" data-error="Looks like this is not an email" style="paddng:0px;margin:0px;width:100%;">
+                    <label for="eaddress">Email</label><br />
+                    <input type="email" name="email" id="eaddress" placeholder="jacksmith@gmail.com" required /><br />
+                  </div>
+                <div class="center">
+                    <button class="form-button">Reset password</button></i>
+                </div>
+                
+        </div>
+        
+        <div class="back-button">
+            <p><i class="fa-solid fa-arrow-left"></i><a href="{% url 'login' %}">Back to Log in</a></p>
+                
+            </div>
+        </form>
+        
+        </div>
+    </section>
+{% endblock %}

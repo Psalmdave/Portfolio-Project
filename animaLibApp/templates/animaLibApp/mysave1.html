@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %}
+<!-- --------------------------------------------------------->
+{% load active_link_tags %}
+<!-- --------------------------------------------------------->
+{% block title %} mysave page {% endblock %}
+<!-- ---------------------------------------------------------------------------- -->
+{% block style %}
+<link href="{% static 'css/mysave1.css' %}" rel="stylesheet" /> {% endblock %}
+{% block content %}
+<div class="content-holder">
+  <div class="saves-title2">
+    <p>My Saves {{get_all}}</p>
+  </div>
+  <div class="main_container">
+    <div class="image_block">
+      <div class="pic_holder">
+        <img src="{{image}}" />
+      </div>
+      <div class="name_image">
+        <p>{{user.username | capfirst}}</p>
+        <br />
+        <a href="{% url 'profile' %}" class="image_but">Edit Profile</a>
+      </div>
+    </div>
+    <div class="explore_block">
+      <p>Your Saved animations would show here</p>
+      <br />
+      <a href="{% url 'showAnimations' %}" class="explore_btn"
+        >Explore Animations</a
+      >
+    </div>
+  </div>
+</div>
+
+{% endblock %}

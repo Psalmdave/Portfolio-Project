@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% load static %}
+<!-- --------------------------------------------------------->
+{% load active_link_tags %}
+<!-- --------------------------------------------------------->
+{% block title %} mysave page {% endblock %}
+<!-- ---------------------------------------------------------------------------- -->
+{% block style %}
+<link href="{% static 'css/mysaves.css' %}" rel="stylesheet" /> {% endblock %}
+{% block content %}
+<div class="showpop" style="display: none">
+  <div class="showpopup">
+    <div class="close_icon">&times</div>
+
+    <div class="popup_content"></div>
+  </div>
+</div>
+<div class="saves-title">
+  <p>My Saves</p>
+</div>
+
+<div class="bigbox1" style="margin-bottom: 170px">
+  <div class="biggerbox1">
+    {% csrf_token %} {% if anims %} {% for anim in all_animations %}
+    <div class="bigbox2">
+      <div class="line1"></div>
+      <div class="smallbox12">
+        <div class="imgicon">
+          <p class="subtitle1">{{anim.animation.name | upper}}</p>
+          <button
+            style="border: none; background-color: rgba(31, 39, 130, 0)"
+            ;
+            type="button"
+          >
+            <a href="#" id="{{anim.id}}" class="del"
+              ><img
+                style="
+                  background-color: none;
+                  width: 24px;
+                  height: 24px;
+                  align-content: space-between;
+                "
+                src="https://i.postimg.cc/tCGBc87M/close-icon-my-saves-page.png"
+                alt="Escape"
+            /></a>
+          </button>
+        </div>
+        <p class="view1">
+          <a
+            href="{% url 'saved_generator' anim.id %}#show"
+            id="{{anim.id}}"
+            class="view"
+            >View in Documentation</a
+          >
+        </p>
+      </div>
+    </div>
+    {% endfor %} {% endif %}
+    <br />
+    <div class="link22">
+      <div class="previous_box">
+        {% if all_animations.has_previous %}
+        <a
+          href="?page={{ all_animations.previous_page_number }}"
+          class="previous"
+          >&lt&lt
+        </a>
+        {% endif %}
+      </div>
+
+      <div class="pages">
+        <span>
+          page {{ all_animations.number }} of
+          <span> {{all_animations.paginator.num_pages }} pages</span>
+        </span>
+      </div>
+      <div class="next_box">
+        {% if all_animations.has_next %}
+        <a href="?page={{ all_animations.next_page_number }}" class="next">
+          &gt&gt</a
+        >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
