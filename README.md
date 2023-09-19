@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# <p align='center'>Animation Library </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align ='center'>
+  <img src="https://res.cloudinary.com/dc29czhf9/image/upload/v1660175087/image/logo_tohji9.png" width="200" height="100">
+</p>
+This project provides an easy to use guide to developers, precisely beginners, on how to add animations to the several elements on their webpage(s). In essence, we try to avoid the hassle of a developer trying to think critically on how they can create or add animations to their webpage.
 
-## Available Scripts
+[live preview](https://group100animo.herokuapp.com/)
 
-In the project directory, you can run:
+## Acknowledgements
 
-### `npm start`
+- [Zuri x I4G](https://www.linkedin.com/company/zuri-team)
+- [proj-anima-lib Team 100](#)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Design:** Figma <img src="https://res.cloudinary.com/dc29czhf9/image/upload/v1659109673/Figma-logo_pw2gqg.svg" width="20" height="20">
 
-### `npm test`
+**Client:** HTML, CSS, JavaScript and Bootstrap.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Server:** Python, Django (web framework).
 
-### `npm run build`
+**Database:** MySQL.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Project Management and Version Control:** Github
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Optimization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We converted both files (css and js) of the library to a zip file. The essence of this is to compress both files to a small size, before they are being saved to the client's local computer.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To install the project to your local computer or server.
+Clone into a directory in your computer using:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/zuri-training/anima_lib_team-100.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+change directory to the project folder created after cloning.
+For window users use the command provided below.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+For other Operating System Users, Kindly follow online documentation or guide on how to change directory.
 
-## Learn More
+```bash
+cd <directoryname>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Creating a virtual environment (this is optional but advisable).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For window users use the command below. If created successfully, activate the virtual environment.
+For other Operating System Users, kindly follow online documentation or guide on how to install and activate your virtual environment.
 
-### Code Splitting
+```bash
+virtualenv <virtualenvironmentname>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install the required packages, using:
 
-### Analyzing the Bundle Size
+```bash
+pip install -r requirements.txt
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+or
 
-### Making a Progressive Web App
+pip3 install -r requirements.txt
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Run migrations to prepare the models or table to be added to the database, using:
 
-### Advanced Configuration
+```bash
+python manage.py makemigrations
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Migrate your tables to the database, using:
 
-### Deployment
+```bash
+python manage.py migrate
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Finally, you can run your server using:
 
-### `npm run build` fails to minify
+```bash
+python manage.py runserver
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Features
+
+NOTE: A majority of our features are provided for only authenticated users. Hence, you need to have registered and logged in to the web application to enjoy these features.
+
+- Interactive documentation showing various animation samples.
+- View User(s) comment about our product (every user can enjoy this)
+- User interaction via posting comments (for only logged in users)
+- Animation library downloadable as zip file. (for only logged in users)
+
+## Usage/Examples - How to use library to add nice animation to your web page.
+
+When you are referencing the code on our server. That is,when you want to embed a link that points to the css and js on our server.
+
+```html
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>page title</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="code_link_to_server" />
+  </head>
+  <body>
+    <tagname class="animation"></tagname>
+
+    <script src="code_link_to_server"></script>
+  </body>
+</html>
+```
+
+When you have downloaded the animation library on your computer
+
+```html
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>page title</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path_to_style.css" />
+  </head>
+  <body>
+    <tagname class="animation"></tagname>
+
+    <script src="path_to_script.js"></script>
+  </body>
+</html>
+```
+
+## Contributors
+
+```bash
+
+```
+
+## License
+
+[Zuri x I4G](https://www.linkedin.com/company/zuri-team) <img src="https://res.cloudinary.com/dc29czhf9/image/upload/v1659116899/zuri_cofp2f.png" width="150" height="30" style="padding-left: 10px">
