@@ -138,4 +138,4 @@ When you have downloaded the animation library on your computer
 
 ```bash
 Miracle Achumba (miracleachumba@gmail.com)
-Rapael Sajimi (raphaelemerald2002@gmail.com)
+Raphael Sajimi (raphaelemerald2002@gmail.com)
