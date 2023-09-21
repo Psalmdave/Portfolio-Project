@@ -137,3 +137,5 @@ When you have downloaded the animation library on your computer
 ## Contributors
 
 ```bash
+Miracle Achumba (miracleachumba@gmail.com)
+Rapael Sajimi (raphaelemerald2002@gmail.com)
