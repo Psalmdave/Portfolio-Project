@@ -5,11 +5,10 @@
 </p>
 This project provides an easy to use guide to developers, precisely beginners, on how to add animations to the several elements on their webpage(s). In essence, we try to avoid the hassle of a developer trying to think critically on how they can create or add animations to their webpage.
 
-[live preview](https://group100animo.herokuapp.com/)
+[live preview]([https://group100animo.herokuapp.com/](https://drive.google.com/file/d/1ng2urGV5zLYb9ucTU7pN1bzclbIDxnd5/view?usp=sharing))
 
 ## Acknowledgements
 
-- [Zuri x I4G](https://www.linkedin.com/company/zuri-team)
 - [proj-anima-lib Team 100](#)
 
 ## Tech Stack
@@ -138,9 +137,3 @@ When you have downloaded the animation library on your computer
 ## Contributors
 
 ```bash
-
-```
-
-## License
-
-[Zuri x I4G](https://www.linkedin.com/company/zuri-team) <img src="https://res.cloudinary.com/dc29czhf9/image/upload/v1659116899/zuri_cofp2f.png" width="150" height="30" style="padding-left: 10px">
