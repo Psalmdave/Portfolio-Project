@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 import environ
 import cloudinary
@@ -171,4 +171,4 @@ AUTH_USER_MODEL = 'animaLibApp.newUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
